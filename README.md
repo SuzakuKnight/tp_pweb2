@@ -12,11 +12,12 @@ Aplicación inspirada en el funcionamiento de Coffee Cart, adaptada al dominio *
 Implementar un servidor backend que exponga APIs RESTful para:
 
 - Listar libros disponibles
+- Ver contenido del carrito
 - Agregar libros al carrito
 - Eliminar libros del carrito
 - Calcular el total de la compra
 
-Incluye documentación manual de los endpoints y pruebas realizadas con Thunder Client.
+Incluye documentación automática de la API mediante Swagger/OpenAPI y pruebas realizadas con Thunder Client.
 
 ---
 
@@ -24,6 +25,7 @@ Incluye documentación manual de los endpoints y pruebas realizadas con Thunder 
 
 - Python
 - Flask
+- Flasgger (Swagger / OpenAPI)
 - Thunder Client (para pruebas de endpoints)
 
 ---
@@ -35,7 +37,7 @@ Incluye documentación manual de los endpoints y pruebas realizadas con Thunder 
 
 ```bash
 pip install -r requirements.txt
-
+```
 ---
 
 ## Documentación Swagger / OpenAPI
