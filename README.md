@@ -33,7 +33,8 @@ Incluye documentación automática de la API mediante Swagger/OpenAPI y pruebas 
 ## Cómo ejecutar el proyecto
 
 1. Clonar el repositorio
-2. Instalar dependencias
+2. Crear el entorno virtual
+3. Instalar dependencias
 
 ```bash
 pip install -r requirements.txt
