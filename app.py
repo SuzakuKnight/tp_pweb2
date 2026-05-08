@@ -91,17 +91,17 @@ def agregar_al_carrito():
 @app.route('/api/carrito/<int:id>', methods=['DELETE'])
 def eliminar_del_carrito(id):
     """
-    Eliminar libro del carrito
+    Eliminar una unidad del libro del carrito
     ---
     parameters:
       - name: id
         in: path
         type: integer
         required: true
-        description: ID del libro a eliminar
+        description: ID del libro a eliminar una unidad
     responses:
       200:
-        description: Libro eliminado
+        description: Se redujo la cantidad o se eliminó el libro
       404:
         description: Libro no encontrado en el carrito
     """
@@ -110,9 +110,17 @@ def eliminar_del_carrito(id):
     if item is None:
         return jsonify({"error": "El libro no está en el carrito"}), 404
 
-    carrito.remove(item)
-    return jsonify({"mensaje": "Libro eliminado", "carrito": carrito}), 200
+    if item["cantidad"] > 1:
+        item["cantidad"] -= 1
+        mensaje = "Se eliminó una unidad del libro"
+    else:
+        carrito.remove(item)
+        mensaje = "Se eliminó el libro del carrito"
 
+    return jsonify({
+        "mensaje": mensaje,
+        "carrito": carrito
+    }), 200
 
 @app.route('/api/carrito/total', methods=['GET'])
 def calcular_total():
